@@ -15,28 +15,26 @@ const computerPlay = () => {
 const playRound = (playerSelection, computerSelection) => {
     if (playerSelection.toLowerCase() === computerSelection) {
         return "This is a tie!";
-    }
-    if (playerSelection.toLowerCase() === "rock") {
+    } else if (playerSelection.toLowerCase() === "rock") {
         if (computerSelection === "paper") {
             return "You lose! Paper beats rock.";
         } else {
             return "You win! Rock beats scissors.";
         }
-    }
-    if (playerSelection.toLowerCase() === "paper") {
+    } else if (playerSelection.toLowerCase() === "paper") {
         if (computerSelection === "scissors") {
             return "You lose! Scissors beats paper.";
         } else {
             return "You win! Paper beats rock.";
         }
-    }
-    if (playerSelection.toLowerCase() === "scissors") {
+    } else if (playerSelection.toLowerCase() === "scissors") {
         if (computerSelection === "rock") {
             return "You lose! Rock beats scissors.";
         } else {
             return "You win! Scissors beats paper.";
         }
-    }            
+    }  else (playerSelection !== "paper" || "rock" || "scissors")
+        return "Error! Please enter a valid selection and play again!";
 }
 
 ////////////////////// GAME FUNCTION //////////////////////
@@ -46,10 +44,11 @@ let computerScore = 0;
 
 const game = () => {
     for (let i = 0; i < 5; i++) {
-        const playerSelection = prompt("Rock, paper or scissors?").toLowerCase();
-        console.log(playerSelection);
+        console.log(`Round ${i + 1}`);
+        let playerSelection = prompt("Let's play a game!", "Choose Rock, Paper or Scissors?").toLowerCase();
+        console.log(`Player chose:  ${playerSelection}`);
         const computerSelection = computerPlay();
-        console.log(computerSelection);
+        console.log(`Computer chose: ${computerSelection}`);
         const result = playRound(playerSelection, computerSelection);
         if (result === "You win! Rock beats scissors.") {
             playerScore++;
@@ -65,16 +64,20 @@ const game = () => {
             computerScore++;
         } else if (result === "This is a tie!") {
             continue;
+        } else if (playerSelection !== "paper" || "rock" || "scissors") {
+            alert("Error!! Please enter a valid selection!");
+            i--
         }
-    }
+        console.log(result);
+        console.log("Player score: " + playerScore + " Computer score: " + computerScore);
+    }   
     if (playerScore > computerScore) {
-        return "You win!";
+        return "You win the game! Congratulations!";
     } else if (playerScore < computerScore) {
-        return "You lose!";
+        return "You lose the game! Better luck next time!";
     } else {
-        return "This is a tie!";
+        return "This is a tie! Your both tied!";
     }
 }
 
 console.log(game());
-console.log("Player score: " + playerScore + " Computer score: " + computerScore);
