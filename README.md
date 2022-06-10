@@ -1,4 +1,4 @@
-# JavaScript_Project
+# JavaScript_Project - Rock, Paper or Scissors
 - Brainnest Frontend Development Industry Training Course
 - Link to website [here](https://saratbarros.github.io/JavaScript_Project/)
 
