@@ -1,5 +1,5 @@
 # JavaScript_Project
-- Brainnest Industry Training Course
+- Brainnest Frontend Development Industry Training Course
 - Link to website [here](https://saratbarros.github.io/JavaScript_Project/)
 
 ## About this project
